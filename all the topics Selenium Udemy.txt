@@ -1,0 +1,430 @@
+UdemySelenium topics
+Section 1 
+
+Selenium introduction
+
+Selenium has many features 
+1. it will support all the bowsers 
+2 it will support the all the multiple language
+
+Selenium Web driver Architecture
+
+selenium Client Library --> W3C Protocol --> Browser Driver <--HTTP--> Real Browser 
+
+W3C Protocol 
+
+1.it support all the browser 
+2.This protocol standardizes the communication between the WebDriver and web browsers, ensuring better compatibility and stability across different browsers and client libraries
+
+why we using the w3c protocol ?
+Ans- it support all the modern browsers
+it will execute the script the any flakiness
+
+Section 2
+
+Syntax
+
+ChromeDriver driver = new Chromedriver();
+
+ChromeDriver -->Class
+driver -- obj name (we can give any word like obj or selenium)
+why we creating a driver - we need to access the method of chromedriver
+new - -obj - creating a memory allocation 
+
+
+WebDriver driver = new Chromedriver();
+
+WebDriver - Interface
+Chormedriver - class 
+driver - user to access the method inside the chromedriver
+
+1.Interface - An interface is the group of related methods with empty body 
+it class responbility to implement the method declaration in the interfaces 
+
+2.WebDriver - is the interface which provide set of automation methods with empty body 
+classess like chromedriver
+
+3.we need to create a object of the class for access the all the method present in the class
+
+
+site for downloading the chrome driver
+
+1. Update your Chrome browser to latest and Selenium version to latest and run again. 
+
+(  If it Still did not work,   - then as shown in Previous lecture, add System.SetProperty() step and get the exact chrome driver version from below link  which matches with your Chrome browser version and run again, It will work for sure. )
+
+https://googlechromelabs.github.io/chrome-for-testing/
+  
+Sample code for launch the browser
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.edge.EdgeDriver;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class SelIntroduction {
+
+public static void main(String[] args) {
+
+//Invoking Browser
+
+//Chrome - ChromeDriver exten->Methods close get
+
+//Firefox- FirefoxDriver ->methods close get
+
+// WebDriver  close  get
+
+//WebDriver methods + class methods
+
+
+// Chrome
+
+         ChromeOptions options = new ChromeOptions();
+
+         options.addArguments("--remote-allow-origins=*");
+
+System.setProperty("webdriver.chrome.driver", "/Users/rahulshetty/Documents/chromedriver");
+
+WebDriver driver = new ChromeDriver(options);
+
+
+Section 3
+Array 
+we need to array as list 
+
+ArrayList<String> a= new ArrayList <String>();
+a.add(arun);
+a.add(kumar);
+a.add(senthil);
+system.out.println(a.contains("skumar");
+output true
+
+String 
+
+String - Ans (String is ojbect that represent the sequence of character)
+String we can implement in 2 ways 
+
+String s= "rahul"
+String s1 ="rahul"
+
+String S2= new String("rahul");
+String S3= new String ("ragul");
+
+String s ="Raghul shetty kumar";
+we can split 
+String [] splitted = s.split(" ");
+sysout(splitted);
+
+String [] name = {arun,"kumar","senthil"}
+List<String> nameArray list = Array.asList(name); // convert array as array list
+
+sample code
+
+public class CoreJavaBrushUp3 {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+//string is an object //String literal
+String s1 = "Rahul Shetty Academy";
+String s5 = "hello";
+//new
+String s2 = new String("Welcome");
+String s3 = new String("Welcome");
+String s = "Rahul Shetty Academy";
+String[] splittedString = s.split("Shetty");
+System.out.println(splittedString[0]);
+System.out.println(splittedString[1]);
+System.out.println(splittedString[1].trim());
+for(int i =s.length()-1;i>=0;i--)
+{
+System.out.println(s.charAt(i));
+}}}
+
+//************************************Methods Code *****************************************
+
+public class MethodsDemo {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+MethodsDemo d = new MethodsDemo();
+String name = d.getData();
+System.out.println(name);
+MethodsDemo2 d1 = new MethodsDemo2();
+d1.getUserData();
+getData2();
+}
+public String getData()
+{
+System.out.println ("hello world");
+return "rahul shetty";
+}
+public static String getData2()
+{
+System.out.println ("hello world");
+return "rahul shetty";
+}}
+
+Section 4 -- core java 
+
+Section 5 -- Locators
+
+ID -- simple (driver.findlement (by.id("idvalue"));
+
+XPATH --- 
+
+XPath (XML  Path Language) is a query language used to navigate and select nodes in XML and HTML documents. It's widely utilized in web scraping, automation testing (e.g., Selenium)
+
+### 🔍 Types of XPath Expressions
+
+#### 1. **Absolute XPath**
+
+* **Definition**: Specifies the complete path from the root element to the target node.
+* **Syntax**: Starts with a single forward slash `/`.
+* **Example**: `/html/body/div[1]/h1`
+* **Pros**: Provides a precise path to the element.
+* **Cons**: Brittle; changes in the DOM structure can break the XPath.([BugBug][3], [QA Touch][4], [HeadSpin][2])
+
+#### 2. **Relative XPath**
+
+* **Definition**: Defines a path relative to the current node or anywhere in the document.
+* **Syntax**: Starts with double slashes `//`.
+* **Example**: `//div[@class='header']/h1`
+* **Pros**: More flexible and resilient to changes in the DOM.
+* **Cons**: May select multiple nodes if not specific enough.([BugBug][3], [W3Schools][5], [HeadSpin][2])
+
+#### 3. **XPath Axes**
+
+* **Definition**: Axes define the node-set relative to the current node.
+* **Common Axes**:
+
+  * `child::` – Selects children of the current node.(//div[@id="container"]/child::*)
+  
+  * `parent::` – Selects the parent of the current node.(//div[@id="container"]/parent::*)
+   
+  * `ancestor::` – Selects all ancestors (parent, grandparent, etc.) of the current node.
+
+  * `descendant::` – Selects all descendants (children, grandchildren, etc.) of the current node.
+
+  * `following-sibling::` – Selects all siblings after the current node.(//div/following-sibling::*)
+    
+  * `preceding-sibling::` – Selects all siblings before the current node.([Wikipedia][1], [Wikipedia][6])
+     
+#### 4. **XPath Functions**
+
+* **Definition**: Functions allow for more complex queries and data manipulation.
+* **Examples**:
+
+  * `contains()` – Checks if a string contains a substring.(Example: `//a[contains(@href, 'login')])
+
+  * `starts-with()` – Checks if a string starts with a substring.(Example: `//input[starts-with(@id, 'user')]`)
+
+  * `text()` – Selects the text content of a node.(Example: `//div[text()='Welcome']`)
+
+    * 
+
+#### 5. **XPath Predicates**
+
+* **Definition**: Predicates are conditions enclosed in square brackets `[]` used to filter nodes.
+* **Examples**:
+
+  * `//ul/li[1]` – Selects the first `<li>` element in a `<ul>`.
+  * `//div[@class='content'][2]` – Selects the second `<div>` with class 'content'.([Wikipedia][1])
+//*[text()='Login']
+
+#### 6. **XPath Data Types**
+
+XPath expressions can return different data types:
+
+* **Node Set**: A collection of nodes matching the expression.
+* **Boolean**: True or false values.
+* **Number**: Numeric values.
+* **String**: Textual data.([IBM][7]
+
+* **Absolute XPath**: `/html/body/div/input[@id='username']`
+* **Relative XPath**: `//input[@id='username']`
+* **Using Functions**: `//input[starts-with(@id, 'user')]`([HeadSpin][2])
+
+CSS SELECTOR
+
+<form>
+  <h2>
+   <p>
+  <input>
+<form>
+
+form p 
+classname --> tagname.classname
+ID --> tagname#id
+tagname [attribute='value'] 
+
+NAME 
+CLASSNAME
+TAG NAME
+LINK TEXT
+
+PARTIAL LINK TEXT
+
+<form>
+  <h2>
+   <p>
+  <input>
+<form>
+
+
+//form/h2 -- find the h2 only inside the tag of form
+//form//h2 -- search on entire page 
+
+
+Section 6 
+36.Css Selector
+  
+if we need to call any method 2 way 
+1. create the obj for the method then call it 
+2. change the method as static and call inside the main method
+
+//After launach the for verify the title or page 
+Assert.assertEquals(driver.findElements(by ,tagname("jshd"));
+
+39. 
+Section 7
+
+
+
+
+
+
+
+Section 7
+
+Section 20
+
+1.properties file
+ main()
+{
+Properties prop = new Properties();
+FileInputStream fis = new FileInputStream("D:\\Project\\tcsproject\\config\\Configuration.properties");
+prop.load(fis);
+String test = prop.getProperty("name");
+System.out.println(test);
+}
+InConfiguration file
+name= ARUN
+
+2.Assert Concept
+ assert for validation 
+assert.assertequals (exp , act result);
+
+Section 23 
+headless mode 
+option.addau
+
+
+Section 25
+Cucumber framework 
+Given 
+when 
+Then 
+And
+
+Section 27 
+GIT Version 
+Git task	Notes	Git commands
+
+Configure the author name and email address to be used with your commits.
+Note that Git strips some characters (for example trailing periods) from user.name.
+
+git config --global user.name "Sam Smith"
+git config --global user.email sam@example.com
+
+Create a new local repository	 	
+git init
+
+Check out a repository	Create a working copy of a local repository:	
+git clone /path/to/repository
+
+For a remote server, use:	
+git clone username@host:/path/to/repository
+
+Add files	Add one or more files to staging (index):	
+git add <filename>
+
+git add *
+Commit	Commit changes to head (but not yet to the remote repository):
+	
+git commit -m "Commit message"
+Commit any files you've added with git add, and also commit any files you've changed since then:
+	
+git commit -a
+Push	Send changes to the master branch of your remote repository:	
+
+git push origin master
+Status	List the files you've changed and those you still need to add or commit:
+	
+git status
+Connect to a remote repository	If you haven't connected your local repository to a remote server, add the server to be able to push to it:	git remote add origin <server>
+List all currently configured remote repositories:	git remote -v
+
+Branches	Create a new branch and switch to it:	
+git checkout -b <branchname>
+Switch from one branch to another:	
+git checkout <branchname>
+List all the branches in your repo, and also tell you what branch you're currently in:	
+git branch
+Delete the feature branch:	
+git branch -d <branchname>
+
+Push the branch to your remote repository, so others can use it:	
+git push origin <branchname>
+
+Push all branches to your remote repository:	
+git push --all origin
+
+Delete a branch on your remote repository:	
+git push origin :<branchname>
+
+Update from the remote repository	Fetch and merge changes on the remote server to your working directory:	git pull
+To merge a different branch into your active branch:	
+git merge <branchname>
+View all the merge conflicts:
+View the conflicts against the base file:
+
+Preview changes, before merging:
+
+git diff
+git diff --base <filename>
+
+git diff <sourcebranch> <targetbranch>
+After you have manually resolved any conflicts, you mark the changed file:	
+git add <filename>
+
+Tags	You can use tagging to mark a significant changeset, such as a release:	
+git tag 1.0.0 <commitID>
+
+CommitId is the leading characters of the changeset ID, up to 10, but must be unique. Get the ID using:	
+git log
+Push all tags to remote repository:	
+git push --tags origin
+Undo local changes	If you mess up, you can replace the changes in your working tree with the last content in head:
+Changes already added to the index, as well as new files, will be kept.
+
+git checkout -- <filename>
+Instead, to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it, do this:	
+git fetch origin
+
+git reset --hard origin/master
+Search	Search the working directory for foo():	git grep "foo()"
+
+Section 30 
+how to drive the data from datasheet ?
+ans - Using Apache POI API 
+maven depedencies setup - poi ooxmi and poi 
+
+
+
+Section 33
+Downloadind the MySQL 
+Creating a Database and Tables
+JBDC Connection with java programming 
+Selenium intregration on JDBC Code 
+Retriveing data from DB and execting with selenium 
