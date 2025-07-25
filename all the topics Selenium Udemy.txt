@@ -1,4 +1,4 @@
-UdemySelenium topics
+Selenium topics
 Section 1 
 
 Selenium introduction
