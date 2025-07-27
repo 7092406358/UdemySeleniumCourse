@@ -4,7 +4,7 @@ Section 1
 Selenium introduction
 
 Selenium has many features 
-1. it will support all the bowsers 
+1.it will support all the bowsers 
 2 it will support the all the multiple language
 
 Selenium Web driver Architecture
@@ -46,6 +46,9 @@ classess like chromedriver
 
 3.we need to create a object of the class for access the all the method present in the class
 
+difference between 
+1.webdriver driver = new chorme driver -- we can change the browser
+2.chromedriver driver = new chromedriver -- we cannot change browser
 
 site for downloading the chrome driver
 
