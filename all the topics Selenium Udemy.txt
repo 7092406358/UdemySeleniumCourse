@@ -1,6 +1,6 @@
-Selenium topics
-Section 1 
+Selenium 
 
+Section 1 
 Selenium introduction
 
 Selenium has many features 
